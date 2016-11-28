@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<title></title>
+
+		<style type="text/css">
+			
+			body {
+				overflow: hidden;
+			}
+			
+			.book {
+				position: relative;
+				overflow: hidden;
+				display: none;
+			}
+			
+			.page6 {
+				background-color: #EBDACD;
+				background-position: center;
+				position: absolute;
+				overflow: hidden;
+			}
+			
+			.page5 {
+				background-color: #EBDACD;
+				background-position: center;
+				background-image: url(img/img5.jpg);
+				position: absolute;
+				overflow: hidden;
+			}
+			
+			.page4 {
+				background-color: #EBDACD;
+				background-position: center;
+				background-image: url(img/img4.jpg);
+				position: absolute;
+				overflow: hidden;
+			}
+			
+			.page3 {
+				background-color: #EBDACD;
+				background-position: center;
+				background-image: url(img/img3.jpg);
+				position: absolute;
+				overflow: hidden;
+			}
+			
+			.page2 {
+				background-color: #EBDACD;
+				background-image: url(img/img2.jpg);
+				position: absolute;
+				background-position: center;
+			}
+			
+			.page1 {
+				background-color: #EBDACD;
+				background-position: center;
+				background-image: url(img/img1.jpg);
+				position: absolute;
+				overflow: hidden;
+				/*opacity: 0;*/
+			}
+			
+			.page1In {
+				width: 100%;
+				height: 100%;
+				/*background-image: url(img/tairuier.jpg);*/
+				background-position: center;
+			}
+			
+			.shadow {
+				position: absolute;
+				display: none;
+				width: 2000px;
+				height: 2000px;
+				transform-origin: left top;
+				box-shadow: -2px 2px 30px rgba(0, 0, 0, 0.5), 2px -2px 30px rgba(0, 0, 0, 0.5);
+			}
+			
+			.shadow_LT {
+				position: absolute;
+				display: none;
+				width: 2000px;
+				height: 2000px;
+				transform-origin: left top;
+				box-shadow: -2px 2px 30px rgba(0, 0, 0, 0.5), 2px -2px 30px rgba(0, 0, 0, 0.5);
+			}
+			
+			.shadowIn {
+				width: 200%;
+				height: 200%;
+				background-color: red;
+				position: absolute;
+				overflow: hidden;
+				display: none;
+				left: 100%;
+				transform-origin: left center;
+			}
+			
+			.changeBg,
+			.changeBg_LT {
+				background-color: orange;
+				position: absolute;
+				background-position: center;
+				/*background-image: url(img/guerdan.jpg);*/
+				transform-origin: left bottom;
+			}
+			
+			.shadowIn_LT {
+				width: 200%;
+				height: 200%;
+				background-color: red;
+				position: absolute;
+				overflow: hidden;
+				display: none;
+				left: 100%;
+				top: 100%;
+				transform-origin: left center;
+			}
+			
+			.shadowBefore {
+				width: 200%;
+				height: 100%;
+				position: absolute;
+				display: none;
+				left: -200%;
+				top: 0;
+				transform-origin: left center;
+				box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.5), 2px -2px 30px rgba(0, 0, 0, 0.5), -2px 2px 30px rgba(0, 0, 0, 0.5);
+			}
+			
+			.changeBg_Before {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				left: 50%;
+				top: 0;
+				transform-origin: left center;
+				background-position: center;
+			}
+			
+			.showBefore {
+				width: 200%;
+				height: 100%;
+				left: -200%;
+				position: absolute;
+				overflow: hidden;
+				display: none;
+				top: 0;
+				background-color: red;
+			}		
+		</style>
+	</head>
+
+	<body>
+		
+		<div class="book wMax">
+			
+			<!-- <div class="page6 wMax pages">
+
+			</div> -->
+			<div class="page5 wMax pages">
+				
+			</div>
+			<div class="page4 wMax pages">
+				
+			</div>
+			<div class="page3 wMax pages">
+				
+			</div>
+			<div class="page2 wMax pages">
+				
+			</div>
+			<div class="page1 wMax pages"></div>
+			<div class="shadowIn">
+				<div class="changeBg wMax"></div>
+			</div>
+			<div class="shadow"></div>
+
+			<div class="shadowIn_LT">
+				<div class="changeBg_LT wMax"></div>
+			</div>
+			<div class="shadow_LT"></div>
+
+			<div class="showBefore">
+				<div class="changeBg_Before wMax"></div>
+			</div>
+			<div class="shadowBefore"></div>
+		</div>
+	</body>
+	<script src="js/function.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/pages.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		// 赋予与屏幕适配的高度与宽度
+		var wMaxs = document.querySelectorAll(".wMax");
+
+		for(var i = 0; i < wMaxs.length; i++) {
+			wMaxs[i].style.width = window.innerWidth + "px";
+			wMaxs[i].style.height = window.innerHeight + "px";
+		}
+		var pages = document.querySelectorAll(".pages");
+		var page1 = document.querySelector(".page1"); //获取第一页
+		var page2 = document.querySelector(".page2"); //获取第二页
+		var page3 = document.querySelector(".page3"); //获取第3页
+		var page4 = document.querySelector(".page4"); //获取第4页
+		var page5 = document.querySelector(".page5");
+		var page6 = document.querySelector(".page6");
+		var shadow = document.querySelector(".shadow"); //获取阴影页
+		var shadowIn = document.querySelector(".shadowIn");
+		var shadow_LT = document.querySelector(".shadow_LT");
+		var shadowIn_LT = document.querySelector(".shadowIn_LT");
+		var changeBg = document.querySelector(".changeBg");
+		var changeBg_LT = document.querySelector(".changeBg_LT");
+		var shadowBefor = document.querySelector(".shadowBefore");
+		var shadowIn_Before = document.querySelector(".showBefore");
+		var changeBg_Before = document.querySelector(".changeBg_Before");
+		var book = document.querySelector(".book");
+		var appearTimer = null;
+		var appearDire = 0;
+		var imgArr = [];
+		var imgNum = 0;
+		for(var i = 1; i <=5;i++){
+			var img = new Image();
+			img.src = "img/img"+i+".jpg";
+			imgArr.push(img);
+			img.onload = function(){
+				imgNum++;
+				if(imgNum == 5){
+					// 开始加载页面
+					book.style.display="block";
+					createPage();
+				}
+			}
+		}
+
+
+
+		function createPage(){
+			//creatFlash()传入五个参数 第一个参数代表当前页面DOM对象 第二个参数代表掀开之后下一页的背景 下一页DOM对象 上一页背景 上一页DOM对象
+			creatFlash(page1, "url("+imgArr[1].src+")", page2, "url("+imgArr[0].src+")", "", function() {}, function() {});
+			creatFlash(page2, "url("+imgArr[2].src+")", page3, "url("+imgArr[0].src+")", page1, function() {}, function() {});
+			creatFlash(page3, "url("+imgArr[3].src+")", page4, "url("+imgArr[1].src+")", page2, function() {}, function() {});
+			creatFlash(page4, "url("+imgArr[4].src+")", page5, "url("+imgArr[2].src+")", page3, function() {}, function() {});
+			creatFlash(page5, "url("+imgArr[4].src+")", "", "url("+imgArr[3].src+")", page4, function() {}, function() {});
+			// creatFlash(page6, "#EBDACD", "", "#EBDACD", page5, function() {}, function() {});
+		}
+	</script>
+
+</html>
